@@ -1,0 +1,52 @@
+Game Interface
+    IsRunning
+    IsEnable
+    PlayerCanPlay
+    FactionMode
+    Rewards
+    RewardsMode
+    ScoreBoardEnable
+    ScoreBoardBuilder()
+    Locations
+    GameLoop()
+    GameStop()
+    GameStart()
+    SchedulerBuilder()
+
+Totem from Game Interface
+    TotemSize
+    Blocs
+    AllowedItems
+
+Koth from Game Interface
+    /
+
+    CARE
+        player death
+        player vanish ?
+
+ConfigUtils
+    ?
+
+RunTask utils
+    need plugin instance
+    run task with delay
+
+GUIManager
+    - GuiConfig
+    - GuiPreselect target event
+        - GuiDisplay Next game start
+        - GuiDisplay possible reward
+        - GuiDisplay general information
+
+commands
+    Help
+    Help admin
+    Start (delay) (multiple)
+    Stop (target)
+    Show next start with target
+    Show enable gui from GuiPreselect
+    BlackList player
+
+
+
