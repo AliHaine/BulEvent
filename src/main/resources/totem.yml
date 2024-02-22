@@ -20,9 +20,6 @@ location:
   - world
   - world
 
-reward:
-  X
-
 scheduler:
   - x
   - x

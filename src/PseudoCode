@@ -19,7 +19,8 @@ Totem from Game Interface
     AllowedItems
 
 Koth from Game Interface
-    /
+    TimeToCap
+    ResetTime
 
     CARE
         player death

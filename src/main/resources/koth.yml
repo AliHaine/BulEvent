@@ -1,3 +1,6 @@
+time_to_capture: 360
+reset_time: true
+
 mode: solo, faction
 mode_reward: solo, faction
 
@@ -12,9 +15,6 @@ location:
   - world
   - world
   - world
-
-reward:
-  X
 
 scheduler:
   - x
