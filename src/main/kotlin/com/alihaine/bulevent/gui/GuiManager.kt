@@ -1,26 +1,32 @@
 package com.alihaine.bulevent.gui
 
+import com.alihaine.bulevent.data.FileStructure
+import com.alihaine.bulevent.data.FileType
 import org.bukkit.Bukkit
+import org.bukkit.Material
 import org.bukkit.entity.HumanEntity
 import org.bukkit.inventory.Inventory
+import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
 import java.util.*
 
 
 class GuiManager {
 
-    private var inv: Inventory? = null
+    private val guis: EnumMap<GuiType, Inventory> = EnumMap(GuiType::class.java)
 
-    fun ExampleGui() {
-        // Create a new inventory, with no owner (as this isn't a real inventory), a size of nine, called example
-        inv = Bukkit.createInventory(null, 9, "Example")
-
-        // Put the items into the inventory
-        initializeItems()
+    private fun setupEnumMap() {
+        defaultGUI()
     }
 
-    // You can open the inventory with this
-    fun openInventory(ent: HumanEntity) {
-        ent.openInventory(inv)
+    private fun defaultGUI() {
+        val inv = Bukkit.createInventory(null, 9, "§eBulEvent")
+        inv.setItem(3, ItemStack(Material.PAPER))
+        inv.setItem(5, ItemStack(Material.PAPER))
+        guis[GuiType.DEFAULT] = inv
+    }
+
+    fun openInventory(guiType: GuiType, ent: HumanEntity) {
+        ent.openInventory(guis[guiType])
     }
 }

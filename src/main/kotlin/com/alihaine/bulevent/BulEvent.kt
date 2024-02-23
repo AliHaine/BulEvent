@@ -8,19 +8,20 @@ import java.io.File
 
 class BulEvent : JavaPlugin() {
     companion object {
-        lateinit var dataFolderVal: File
-            private set;
-
         lateinit var bulEvent: BulEvent
             private set
+
+        lateinit var fileManager: FileManager
+            private set;
+
     }
 
     override fun onEnable() {
         this.getCommand("be").executor = BE()
-        dataFolderVal = this.dataFolder
         bulEvent = this;
-        FileManager.setValueToFile(FileType.TOTEM, "allowed_items", "")
-        println("oui" + FileManager.getStringFromFile(FileType.TOTEM, "totem_size"))
+        fileManager = FileManager()
+        fileManager.setValueToFile(FileType.TOTEM, "allowed_items", "")
+        println("oui" + fileManager.getStringFromFile(FileType.TOTEM, "totem_size"))
 
     }
 
