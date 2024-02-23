@@ -1,14 +1,12 @@
 time_to_capture: 360
 reset_time: true
 
-mode: solo, faction
-mode_reward: solo, faction
+mode: solo
+mode_reward: solo
 
 scoreboard_enable: true
-scoreboard_title: "title"
-scoreboard:
-  - "s"
-  - "s"
+scoreboard_title: title
+scoreboard: ''
 
 location:
   - world
@@ -16,7 +14,4 @@ location:
   - world
   - world
 
-scheduler:
-  - x
-  - x
-  - x
+scheduler: ''

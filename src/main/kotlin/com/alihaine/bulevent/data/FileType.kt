@@ -3,12 +3,7 @@ package com.alihaine.bulevent.data
 enum class FileType {
     CONFIG,
     MESSAGE,
+    REWARD,
     KOTH,
     TOTEM;
-
-    companion object {
-        fun getFileName(fileType: FileType): String {
-            return fileType.name.lowercase() + ".yml";
-        }
-    }
 }

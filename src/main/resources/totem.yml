@@ -1,26 +1,14 @@
 totem_size: 5
-blocs:
-  - block X
-  - block X
-  - block X
-allowed_items:
+blocs: ''
+allowed_items: ''
 
-mode: solo, faction
-mode_reward: solo, faction
+mode: solo
+mode_reward: solo
 
 scoreboard_enable: true
-scoreboard_title: "title"
-scoreboard:
-  - "s"
-  - "s"
+scoreboard_title: title
+scoreboard: ''
 
-location:
-  - world
-  - world
-  - world
-  - world
+location: ''
 
-scheduler:
-  - x
-  - x
-  - x
+scheduler: ''

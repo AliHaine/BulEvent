@@ -18,8 +18,8 @@ class FileManager(private val file: File, private val fileConfig: FileConfigurat
             var fileConf: FileConfiguration
             val newMap: EnumMap<FileType, FileManager> = EnumMap(FileType::class.java)
             for (fileType in FileType.entries) {
-                //if game is disable return
-                val fileName = FileType.getFileName(fileType)
+                //todo if game is disable return
+                val fileName = getFileName(fileType)
                 newFile = File(BulEvent.dataFolderVal, fileName)
                 if (!newFile.exists()) {
                     newFile.getParentFile().mkdirs();
@@ -38,31 +38,30 @@ class FileManager(private val file: File, private val fileConfig: FileConfigurat
             return newMap
         }
 
+        fun setValueToFile(fileType: FileType, path: String, value: Any) {
+            files[fileType]?.fileConfig?.set(path, value)
+            saveFile(fileType)
+        }
+
         fun getStringFromFile(fileType: FileType, path: String): String? {
             println(files[fileType]?.fileConfig)
             return files[fileType]?.fileConfig?.getString(path)
-        }
-
-        fun setStringToFile(fileType: FileType, path: String, value: String) {
-            files[fileType]?.fileConfig?.set(path, value)
         }
 
         fun getStringListFromFile(fileType: FileType, path: String): MutableList<String>? {
             return files[fileType]?.fileConfig?.getStringList(path)
         }
 
-        fun setStringListToFile(fileType: FileType, path: String, value: MutableList<String>) {
-            files[fileType]?.fileConfig?.set(path, value)
+        fun getBooleanFromFile(fileType: FileType, path: String): Boolean? {
+            return files[fileType]?.fileConfig?.getBoolean(path)
         }
 
-        fun saveFile(fileType: FileType) {
+        private fun saveFile(fileType: FileType) {
             files[fileType]?.fileConfig?.save(files[fileType]?.file)
         }
 
-        fun saveAllFile() {
-            for (file in files) {
-                file.value.fileConfig.save(file.value.file)
-            }
+        private fun getFileName(fileType: FileType): String {
+            return fileType.name.lowercase() + ".yml";
         }
     }
 }

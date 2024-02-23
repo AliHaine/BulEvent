@@ -19,12 +19,11 @@ class BulEvent : JavaPlugin() {
         this.getCommand("be").executor = BE()
         dataFolderVal = this.dataFolder
         bulEvent = this;
-        FileManager.setStringToFile(FileType.TOTEM, "totem_size", "10")
+        FileManager.setValueToFile(FileType.TOTEM, "allowed_items", "")
         println("oui" + FileManager.getStringFromFile(FileType.TOTEM, "totem_size"))
 
     }
 
     override fun onDisable() {
-        FileManager.saveAllFile()
     }
 }
