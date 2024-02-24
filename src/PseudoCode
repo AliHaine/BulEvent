@@ -34,16 +34,17 @@ RunTask utils
     run task with delay
 
 GUIManager
-    - GuiConfig
     - GuiPreselect target event
         - GuiDisplay Next game start
         - GuiDisplay possible reward
         - GuiDisplay general information
+        - ADMIN GuiDisplay add rewards
+        - ADMIN GuiDisplay change value from config
 
 commands
     Help
     Help admin
-    Start (delay) (multiple)
+    Start (target) (delay)
     Stop (target)
     Show next start with target
     Show enable gui from GuiPreselect

@@ -9,7 +9,7 @@ import java.io.IOException
 import java.util.*
 
 
-class FileManager() {
+class FileManager {
     private val files: EnumMap<FileType, FileStructure> = setupEnumMap()
 
     private fun setupEnumMap(): EnumMap<FileType, FileStructure> {
@@ -21,12 +21,12 @@ class FileManager() {
             val fileName = getFileName(fileType)
             newFile = File(BulEvent.bulEvent.dataFolder, fileName)
             if (!newFile.exists()) {
-                newFile.getParentFile().mkdirs();
+                newFile.getParentFile().mkdirs()
                 BulEvent.bulEvent.saveResource(fileName, false)
             }
             fileConf = YamlConfiguration()
             try {
-                fileConf.load(newFile);
+                fileConf.load(newFile)
             } catch (e: IOException) {
                 e.printStackTrace()
             } catch (e: InvalidConfigurationException) {

@@ -1,0 +1,41 @@
+event:
+  event_start_soon:
+    - "&e&l&m--------------------------"
+    - "&eThe event &e&l%event%"
+    - "&eWill start in &e&l%time%"
+    - "&e&l&m--------------------------"
+  event_start:
+    - "&e&l&m--------------------------"
+    - "&eThe event %event% Start !"
+    - "&eJoin the fight by using &c/warp %event%"
+    - "&e&l&m--------------------------"
+  event_stop_soon:
+    - "&e&l&m--------------------------"
+    - "&eThe event %event%"
+    - "&eWill stop in %time%"
+    - "&e&l&m--------------------------"
+  event_stop:
+    - "&e&l&m--------------------------"
+    - "&eThe event %event% was stopped !"
+    - "&e&l&m--------------------------"
+  event_winner_solo:
+    - "&e&l&m--------------------------"
+    - "&eThe player %player%"
+    - "&eWin the event %event%"
+    - "&e&l&m--------------------------"
+  event_winner_group:
+    - "&e&l&m--------------------------"
+    - "&eThe faction %faction%"
+    - "&eWin the event %event%"
+    - "&e&l&m--------------------------"
+
+admin:
+  perm: "&cYou don't have the permission to do that"
+  reload: "&cReload successful"
+  event_manual_start: "&aThe event %event% will start in %time%"
+  event_manual_start_already_error: "&cThe event %event% is already running"
+  event_manual_start_noevent_error: "&cYou don't have created any %event%. Please create one before trying to starting"
+  event_manual_stop: "&aYou stopped the event %event%"
+  event_manual_stop_error: "&aThe event %event% is not running"
+  ingame_config_disable: "&cThe config ingame is disable, please enable it in your config.yml"
+  config_value_set: "%aNew value define for %value%. From %old% to %new%"

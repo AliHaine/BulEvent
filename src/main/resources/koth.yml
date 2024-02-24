@@ -8,10 +8,6 @@ scoreboard_enable: true
 scoreboard_title: title
 scoreboard: ''
 
-location:
-  - world
-  - world
-  - world
-  - world
+location: ''
 
 scheduler: ''

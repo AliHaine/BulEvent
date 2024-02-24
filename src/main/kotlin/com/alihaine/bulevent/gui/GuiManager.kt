@@ -10,23 +10,49 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
 import java.util.*
 
+const val TITLE = "§eBulEvent"
 
 class GuiManager {
 
     private val guis: EnumMap<GuiType, Inventory> = EnumMap(GuiType::class.java)
 
-    private fun setupEnumMap() {
-        defaultGUI()
+    init {
+        defaultGui()
+        totemGui()
     }
 
-    private fun defaultGUI() {
-        val inv = Bukkit.createInventory(null, 9, "§eBulEvent")
-        inv.setItem(3, ItemStack(Material.PAPER))
-        inv.setItem(5, ItemStack(Material.PAPER))
+    private fun defaultGui() {
+        val inv = Bukkit.createInventory(null, 9, TITLE)
+        inv.setItem(3, createItemStack(Material.PAPER, "§rTotem", listOf("a")))
+        inv.setItem(5, createItemStack(Material.PAPER, "§rKoth", listOf()))
         guis[GuiType.DEFAULT] = inv
+    }
+
+    private fun totemGui() {
+        val inv = Bukkit.createInventory(null, 27, TITLE)
+        inv.setItem(0, ItemStack(Material.QUARTZ))
+        inv.setItem(5, ItemStack(Material.PAPER))
+        guis[GuiType.TOTEM] = inv
+    }
+
+    private fun createItemStack(material: Material, title: String, lore: List<String>): ItemStack {
+        val itemStack = ItemStack(material)
+        val itemMeta = itemStack.itemMeta
+
+        itemMeta.displayName = title
+        itemMeta.lore = lore
+        itemStack.itemMeta = itemMeta
+        return itemStack
     }
 
     fun openInventory(guiType: GuiType, ent: HumanEntity) {
         ent.openInventory(guis[guiType])
+    }
+
+    fun isCustomInventory(title: String): Boolean {
+        for (inv in guis)
+            if (inv.value.title == title)
+                return true;
+        return false
     }
 }
