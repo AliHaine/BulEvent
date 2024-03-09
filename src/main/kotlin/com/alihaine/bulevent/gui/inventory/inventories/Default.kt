@@ -14,8 +14,8 @@ class Default() : GuiInventories() {
 
     private fun defaultGui() {
         val inv = Bukkit.createInventory(null, 9, TITLE)
-        inv.setItem(3, createItemStack(Material.PAPER, "§e" + Action.OPEN.name, listOf("§eTotem")))
-        inv.setItem(5, createItemStack(Material.PAPER, "§e" + Action.OPEN.name, listOf("§eKoth")))
+        inv.setItem(3, createItemStack(Material.PAPER, "§e" + Action.OPEN.title, listOf("§eTotem")))
+        inv.setItem(5, createItemStack(Material.PAPER, "§e" + Action.OPEN.title, listOf("§eKoth")))
         inventories[GuiType.DEFAULT] = inv
     }
 }

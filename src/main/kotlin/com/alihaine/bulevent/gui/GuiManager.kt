@@ -10,6 +10,7 @@ const val TITLE = "§eBulEvent"
 
 class GuiManager {
     private val guis: EnumMap<GuiGameType, GuiInventories> = EnumMap(GuiGameType::class.java)
+    private val waitForEntry: MutableList<String> = mutableListOf()
 
     init {
         for (guiType in GuiGameType.entries) {
@@ -22,13 +23,25 @@ class GuiManager {
         }
     }
 
-    fun openInventory(guiType: GuiGameType, guiGameType: GuiType, ent: HumanEntity) {
-        ent.openInventory(guis[guiType]?.inventories?.get(guiGameType) ?: return)
+    fun openInventory(guiGameType: GuiGameType, guiType: GuiType, ent: HumanEntity) {
+        ent.openInventory(guis[guiGameType]?.inventories?.get(guiType) ?: return)
     }
 
     fun isCustomInventory(title: String): Boolean {
         if (TITLE == title)
             return true;
         return false
+    }
+
+    fun isPlayerInWaitForPlayer(name: String): Boolean {
+        return waitForEntry.contains(name)
+    }
+
+    fun setPlayerInWaitToEntry(name: String) {
+        waitForEntry.add(name)
+    }
+
+    fun removePlayerInWaitToEntry(name: String) {
+        waitForEntry.remove(name)
     }
 }
