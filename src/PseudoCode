@@ -37,9 +37,12 @@ GUIManager
     - GuiPreselect target event
         - GuiDisplay Next game start
         - GuiDisplay possible reward
-        - GuiDisplay general information
         - ADMIN GuiDisplay add rewards
         - ADMIN GuiDisplay change value from config
+    - Button type
+        - Open another inv (Player, Inventory)
+        - Set bool value in conf (Conf, path)
+        - Set value in conf (Conf, value, path)
 
 commands
     Help

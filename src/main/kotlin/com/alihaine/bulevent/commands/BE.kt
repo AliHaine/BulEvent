@@ -2,14 +2,11 @@ package com.alihaine.bulevent.commands
 
 
 import com.alihaine.bulevent.BulEvent
-import com.alihaine.bulevent.data.FileManager
-import com.alihaine.bulevent.data.FileType
-import com.alihaine.bulevent.gui.GuiType
+import com.alihaine.bulevent.gui.GuiGameType
+import com.alihaine.bulevent.gui.inventory.GuiType
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer
-import org.bukkit.entity.HumanEntity
 import org.bukkit.entity.Player
 
 
@@ -20,7 +17,7 @@ class BE : CommandExecutor {
         val player = if (sender is Player) sender else null
         if (player == null)
             return true
-        guiManager.openInventory(GuiType.DEFAULT, player)
+        guiManager.openInventory(GuiGameType.DEFAULT, GuiType.DEFAULT, player)
         return true
     }
 }

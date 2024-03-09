@@ -1,11 +1,7 @@
 package com.alihaine.bulevent.gui
 
-enum class GuiType {
+enum class GuiGameType {
     DEFAULT,
-    CONFIG,
-    REWARD,
-    SCHEDULER,
-    INFO,
     TOTEM,
     KOTH;
 }
