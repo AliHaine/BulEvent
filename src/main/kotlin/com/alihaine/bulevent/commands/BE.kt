@@ -17,7 +17,8 @@ class BE : CommandExecutor {
         val player = if (sender is Player) sender else null
         if (player == null)
             return true
-        guiManager.openInventory(GuiGameType.DEFAULT, GuiType.DEFAULT, player)
+        //guiManager.openInventory(GuiGameType.DEFAULT, GuiType.DEFAULT, player)
+        BulEvent.totemGame.gameStart()
         return true
     }
 }

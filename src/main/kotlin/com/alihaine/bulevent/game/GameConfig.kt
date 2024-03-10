@@ -4,13 +4,13 @@ import org.bukkit.Location
 import org.bukkit.inventory.ItemStack
 
 abstract class GameConfig : Game {
-    val isRunning = false
-    val isEnable = false
-    val singleMode = true
-    val rewards = listOf<ItemStack>()
-    val rewardsSingleMode = true
-    val scoreboardEnable = false
-    val locations = listOf<Location>()
+    var isRunning = false
+    var isEnable = false
+    var singleMode = true
+    val rewards = mutableListOf<ItemStack>()
+    var rewardsSingleMode = true
+    var scoreboardEnable = false
+    val locations = mutableListOf<Location>()
 
     fun scoreboardBuilder() {
 
