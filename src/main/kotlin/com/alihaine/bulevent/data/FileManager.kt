@@ -1,6 +1,7 @@
 package com.alihaine.bulevent.data
 
 import com.alihaine.bulevent.BulEvent
+import com.alihaine.bulevent.utils.Message
 import org.bukkit.configuration.InvalidConfigurationException
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.configuration.file.YamlConfiguration
@@ -43,11 +44,10 @@ class FileManager {
     }
 
     fun getStringFromFile(fileType: FileType, path: String): String? {
-        println(files[fileType]?.fileConfig)
         return files[fileType]?.fileConfig?.getString(path)
     }
 
-    fun getStringListFromFile(fileType: FileType, path: String): MutableList<String>? {
+    fun getStringListFromFile(fileType: FileType, path: String): List<String>? {
         return files[fileType]?.fileConfig?.getStringList(path)
     }
 

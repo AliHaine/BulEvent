@@ -1,29 +1,29 @@
 event:
-  event_start_soon:
+  start_soon:
     - "&e&l&m--------------------------"
     - "&eThe event &e&l%event%"
     - "&eWill start in &e&l%time%"
     - "&e&l&m--------------------------"
-  event_start:
+  start:
     - "&e&l&m--------------------------"
     - "&eThe event %event% Start !"
     - "&eJoin the fight by using &c/warp %event%"
     - "&e&l&m--------------------------"
-  event_stop_soon:
+  stop_soon:
     - "&e&l&m--------------------------"
     - "&eThe event %event%"
     - "&eWill stop in %time%"
     - "&e&l&m--------------------------"
-  event_stop:
+  stop:
     - "&e&l&m--------------------------"
     - "&eThe event %event% was stopped !"
     - "&e&l&m--------------------------"
-  event_winner_solo:
+  winner_solo:
     - "&e&l&m--------------------------"
     - "&eThe player %player%"
     - "&eWin the event %event%"
     - "&e&l&m--------------------------"
-  event_winner_group:
+  winner_group:
     - "&e&l&m--------------------------"
     - "&eThe faction %faction%"
     - "&eWin the event %event%"
