@@ -47,7 +47,7 @@ class FileManager {
         return files[fileType]?.fileConfig?.getString(path)
     }
 
-    fun getStringListFromFile(fileType: FileType, path: String): List<String>? {
+    fun getStringListFromFile(fileType: FileType, path: String): MutableList<String>? {
         return files[fileType]?.fileConfig?.getStringList(path)
     }
 

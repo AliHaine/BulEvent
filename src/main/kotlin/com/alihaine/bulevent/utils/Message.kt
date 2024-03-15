@@ -6,12 +6,13 @@ import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 
 enum class Message(val path: String) {
-    START_SOON("event.start_soon"),
-    START("event.start"),
-    STOP_SOON("event.stop_soon"),
-    STOP("event.stop"),
-    WINNER_SOLO("event.winner_solo"),
-    WINNER_GROUP("event.winner_group"),
+    START_SOON("event_global.start_soon"),
+    START("event_global.start"),
+    STOP_SOON("event_global.stop_soon"),
+    STOP("event_global.stop"),
+    WINNER_SOLO("event_global.winner_solo"),
+    WINNER_GROUP("event_global.winner_group"),
+    PLAYER_DESTROY_BLOCK("event_totem.player_destroy_block"),
     PERM("admin.perm"),
     RELOAD("admin.reload"),
     EVENT_MANUAL_START("admin.event_manual_start"),
@@ -24,21 +25,26 @@ enum class Message(val path: String) {
     companion object {
         private val fileManager = BulEvent.fileManager
 
-        fun sendMessage(player: Player?, msg: Message) {
+        fun sendMessage(player: Player?, msg: Message, component: ComponentObj?) {
             //val messageList: List<String> = fileManager.getStringListFromFile(FileType.MESSAGE, msg.path) ?: listOf(fileManager.getStringFromFile(FileType.MESSAGE, msg.path) ?: return)
-            var messageList: List<String>? = fileManager.getStringListFromFile(FileType.MESSAGE, msg.path)
-            if (messageList == null)
-                messageList = listOf(fileManager.getStringFromFile(FileType.MESSAGE, msg.path) ?: return)
+            var messageList: MutableList<String>? = fileManager.getStringListFromFile(FileType.MESSAGE, msg.path)
+            if (messageList.isNullOrEmpty())
+                messageList = mutableListOf(fileManager.getStringFromFile(FileType.MESSAGE, msg.path) ?: return)
+            if (messageList.isEmpty())
+                return
+            if (component != null)
+                buildMessageComponent(messageList, component)
             messageSender(player, messageList)
         }
 
-        fun sendMessageComponent(player: Player?, msg: Message, component: ComponentObj) {
-            var messageList: List<String>? = fileManager.getStringListFromFile(FileType.MESSAGE, msg.path)
-            if (messageList == null)
-                messageList = listOf(fileManager.getStringFromFile(FileType.MESSAGE, msg.path) ?: return)
-            for (i in messageList.indices)
-                messageList[i] = str[i].replace(component.compoEnum.tag, component.value)
-            messageSender(player, messageList)
+        private fun buildMessageComponent(messageList: MutableList<String>, component: ComponentObj) {
+            messageList.indices.forEach { i ->
+                if (messageList[i].contains('%')) {
+                    component.values.indices.forEach { x ->
+                        messageList[i] = messageList[i].replace(component.compoEnum[x].tag, component.values[x])
+                    }
+                }
+            }
         }
 
         private fun messageSender(player: Player?, message: List<String>) {
@@ -67,4 +73,4 @@ enum class ComponentEnum(val tag: String) {
     TIME("%time%");
 }
 
-class ComponentObj(val compoEnum: ComponentEnum, val value: String)
+class ComponentObj(val compoEnum: List<ComponentEnum>, val values: List<String>)

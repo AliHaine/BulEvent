@@ -1,4 +1,4 @@
-event:
+event_global:
   start_soon:
     - "&e&l&m--------------------------"
     - "&eThe event &e&l%event%"
@@ -27,6 +27,12 @@ event:
     - "&e&l&m--------------------------"
     - "&eThe faction %faction%"
     - "&eWin the event %event%"
+    - "&e&l&m--------------------------"
+event_totem:
+  player_destroy_block:
+    - "&e&l&m--------------------------"
+    - "&eThe player &e&l%player%"
+    - "&eHas destroy a block from the Totem"
     - "&e&l&m--------------------------"
 
 admin:

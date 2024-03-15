@@ -20,7 +20,7 @@ class BE : CommandExecutor {
         if (player == null)
             return true
         //guiManager.openInventory(GuiGameType.DEFAULT, GuiType.DEFAULT, player)
-       // BulEvent.totemGame.gameStart()
+        BulEvent.totemGame.gameStart()
         BulEvent.fileManager.getStringListFromFile(FileType.MESSAGE, "")
         return true
     }
