@@ -1,5 +1,6 @@
 package com.alihaine.bulevent.game
 
+import com.alihaine.bulevent.utils.MessageBundle
 import org.bukkit.Location
 import org.bukkit.inventory.ItemStack
 

@@ -3,8 +3,8 @@ package com.alihaine.bulevent.game.games
 import com.alihaine.bulevent.BulEvent
 import com.alihaine.bulevent.data.FileType
 import com.alihaine.bulevent.game.GameConfig
-import com.alihaine.bulevent.utils.ComponentEnum
-import com.alihaine.bulevent.utils.ComponentObj
+\\
+import com.alihaine.bulevent.utils.PlaceHolderObj
 import com.alihaine.bulevent.utils.Message
 import org.bukkit.Bukkit.getServer
 import org.bukkit.Location
@@ -27,11 +27,10 @@ class Totem : GameConfig() {
     }
 
     override fun gameStart() {
-        Message.sendMessage(null, Message.PERM, null)
+        Message.PERM.sendMessage(null,null)
         this.isRunning = true
         //msg start
         buildTotem()
-
     }
 
     override fun gameStop() {
@@ -45,7 +44,7 @@ class Totem : GameConfig() {
 
     fun destroyTotemBlock(player: Player, location: Location) {
         location.block.type = Material.AIR
-        Message.sendMessage(player, Message.PLAYER_DESTROY_BLOCK, ComponentObj(listOf(ComponentEnum.PLAYER), listOf(player.name)))
+        Message.PLAYER_DESTROY_BLOCK.sendMessage(player, PlaceHolderObj(listOf(ComponentEnum.PLAYER), listOf(player.name)))
     }
 
     fun isBlockOfTotem(block: Block): Boolean {
